@@ -26,4 +26,816 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: var
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+    background: rgba(5,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--text-dim);
+    font-size: 0.65rem;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-top: -6px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    padding: 6px 18px;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent) !important;
+    color: var(--bg) !important;
+  }
+
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg-arc {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,200,255,0.08);
+    pointer-events: none;
+  }
+  .hero-bg-arc::after {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,200,255,0.06);
+  }
+
+  .power-line {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .power-line svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pl-path {
+    stroke: var(--accent);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 8 24;
+    animation: dash 6s linear infinite;
+    opacity: 0.18;
+  }
+
+  @keyframes dash {
+    to { stroke-dashoffset: -320; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: 0.03em;
+    color: var(--text-bright);
+    max-width: 860px;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero-title .accent { color: var(--accent); }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 520px;
+    line-height: 1.7;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-actions {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--accent);
+  }
+
+  .btn-outline {
+    border-color: var(--border);
+    color: var(--text-dim);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 48px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    animation: fadeUp 1s 0.5s ease both;
+    background: rgba(8,16,24,0.7);
+    backdrop-filter: blur(8px);
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 18px 24px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  section { position: relative; z-index: 1; }
+
+  .section-header { margin-bottom: 60px; }
+
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: var(--text-bright);
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .section-desc {
+    margin-top: 16px;
+    color: var(--text-dim);
+    max-width: 540px;
+    font-size: 0.95rem;
+  }
+
+  #services {
+    padding: 120px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--bg2);
+    padding: 40px 36px;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .service-card:hover { background: var(--surface); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    color: var(--accent);
+    opacity: 0.8;
+  }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--border);
+    position: absolute;
+    top: 16px; right: 24px;
+    line-height: 1;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-num { color: rgba(0,200,255,0.1); }
+
+  .service-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  #about {
+    padding: 120px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 420px;
+  }
+
+  .about-schematic {
+    position: absolute;
+    inset: 0;
+  }
+
+  #research {
+    padding: 120px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .research-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .research-item:last-child { border-bottom: none; }
+  .research-item:hover { background: var(--surface); }
+
+  .research-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  .research-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .research-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .research-tag.active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  #contact {
+    padding: 120px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-box {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .contact-item {
+    background: var(--bg);
+    padding: 40px 32px;
+    text-align: left;
+  }
+
+  .contact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .contact-value { font-size: 0.95rem; color: var(--text-bright); }
+  .contact-value a { color: var(--accent); text-decoration: none; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg2);
+  }
+
+  .footer-copy {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-links { display: flex; gap: 24px; }
+
+  .footer-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 10px;
+    vertical-align: middle;
+    box-shadow: 0 0 0 0 rgba(0,200,255,0.5);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(0,200,255,0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(0,200,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,200,255,0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    #hero { padding: 100px 20px 200px; }
+    .hero-stats { left: 20px; right: 20px; flex-wrap: wrap; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    #about { grid-template-columns: 1fr; gap: 40px; padding: 80px 20px; }
+    .about-visual { height: 260px; }
+    #services, #research, #contact { padding: 80px 20px; }
+    .contact-box { grid-template-columns: 1fr; }
+    .research-item { grid-template-columns: 1fr; gap: 8px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">PSGER<span>Power Systems · Grid Engineering · Research</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="power-line">
+    <svg viewBox="0 0 1400 700" preserveAspectRatio="none">
+      <path class="pl-path" d="M0,200 Q200,180 400,220 T800,200 T1200,220 T1600,200"/>
+      <path class="pl-path" d="M0,350 Q300,330 600,370 T1200,350 T1800,370" style="animation-delay:-2s;opacity:0.10"/>
+      <path class="pl-path" d="M0,500 Q250,480 500,520 T1000,500 T1400,520" style="animation-delay:-4s;opacity:0.07"/>
+    </svg>
+  </div>
+  <div class="hero-bg-arc"></div>
+
+  <p class="hero-eyebrow"><span class="pulse-dot"></span>Advancing Grid Infrastructure</p>
+  <h1 class="hero-title">Power Systems<br><span class="accent">Grid</span><br>Engineering</h1>
+  <p class="hero-sub">PSGER delivers high-integrity engineering solutions and cutting-edge research for modern power grid challenges — from transmission planning to renewable integration.</p>
+  <div class="hero-actions">
+    <a href="#services" class="btn btn-primary">Our Services</a>
+    <a href="#research" class="btn btn-outline">View Research</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-value">500+</div>
+      <div class="stat-label">MW Analyzed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">40+</div>
+      <div class="stat-label">Grid Projects</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Research Areas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Grid Reliability Focus</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-header reveal">
+    <p class="section-tag">// What We Do</p>
+    <h2 class="section-title">Core Services</h2>
+    <p class="section-desc">End-to-end power systems engineering across planning, design, analysis, and research domains.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="18" width="8" height="12" rx="1"/>
+        <rect x="20" y="10" width="8" height="20" rx="1"/>
+        <rect x="36" y="22" width="8" height="8" rx="1"/>
+        <line x1="12" y1="24" x2="20" y2="24"/>
+        <line x1="28" y1="24" x2="36" y2="24"/>
+        <line x1="8" y1="18" x2="8" y2="10"/><line x1="8" y1="10" x2="24" y2="10"/>
+      </svg>
+      <div class="service-name">Transmission Planning & Analysis</div>
+      <div class="service-desc">Load flow, contingency, and stability studies for bulk power transmission systems. Long-term planning studies aligned with reliability standards.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="24" cy="24" r="10"/>
+        <circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/>
+        <line x1="24" y1="4" x2="24" y2="14"/>
+        <line x1="24" y1="34" x2="24" y2="44"/>
+        <line x1="4" y1="24" x2="14" y2="24"/>
+        <line x1="34" y1="24" x2="44" y2="24"/>
+        <line x1="10" y1="10" x2="17" y2="17"/>
+        <line x1="31" y1="31" x2="38" y2="38"/>
+      </svg>
+      <div class="service-name">Renewable Energy Integration</div>
+      <div class="service-desc">Grid interconnection studies for solar, wind, and storage projects. Inverter-based resource modeling, harmonic analysis, and dynamic assessment.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="4,38 14,22 24,30 34,12 44,20"/>
+        <circle cx="34" cy="12" r="3" fill="currentColor" stroke="none"/>
+      </svg>
+      <div class="service-name">Power System Stability Studies</div>
+      <div class="service-desc">Transient, voltage, and small-signal stability analysis. Dynamic simulations using industry-standard tools (PSS/E, PowerWorld, PSCAD).</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="8" width="36" height="28" rx="2"/>
+        <line x1="6" y1="20" x2="42" y2="20"/>
+        <line x1="18" y1="8" x2="18" y2="36"/>
+        <line x1="18" y1="40" x2="30" y2="40"/>
+        <line x1="24" y1="36" x2="24" y2="40"/>
+      </svg>
+      <div class="service-name">Protection & Control Engineering</div>
+      <div class="service-desc">Relay coordination, protection scheme design, and settings calculations. SCADA/EMS integration and substation automation consulting.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M24 4 L44 14 L44 34 L24 44 L4 34 L4 14 Z"/>
+        <path d="M24 14 L34 19 L34 29 L24 34 L14 29 L14 19 Z"/>
+        <circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/>
+      </svg>
+      <div class="service-name">Grid Resilience & Reliability</div>
+      <div class="service-desc">N-1 and N-2 contingency analysis, critical infrastructure vulnerability assessment, and resilience improvement planning for utilities and ISOs.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="8" y="28" width="10" height="14" rx="1"/>
+        <rect x="20" y="18" width="10" height="24" rx="1"/>
+        <rect x="32" y="8" width="10" height="34" rx="1"/>
+        <path d="M10 22 L22 14 L34 6" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="service-name">Applied Power Systems Research</div>
+      <div class="service-desc">Original research in grid modernization, energy storage, HVDC, and advanced power electronics. Technical publications and white papers.</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-visual reveal">
+    <svg class="about-schematic" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.5">
+        <line x1="60" y1="80" x2="180" y2="80" stroke="#1a3048" stroke-width="2"/>
+        <line x1="300" y1="80" x2="420" y2="80" stroke="#1a3048" stroke-width="2"/>
+        <line x1="60" y1="250" x2="200" y2="250" stroke="#1a3048" stroke-width="2"/>
+        <line x1="280" y1="250" x2="420" y2="250" stroke="#1a3048" stroke-width="2"/>
+        <line x1="60" y1="380" x2="420" y2="380" stroke="#1a3048" stroke-width="2"/>
+        <circle cx="230" cy="80" r="24" stroke="#00c8ff" stroke-width="1.2" opacity="0.6"/>
+        <circle cx="270" cy="80" r="24" stroke="#00c8ff" stroke-width="1.2" opacity="0.6"/>
+        <circle cx="230" cy="250" r="20" stroke="#00c8ff" stroke-width="1.2" opacity="0.4"/>
+        <circle cx="265" cy="250" r="20" stroke="#00c8ff" stroke-width="1.2" opacity="0.4"/>
+        <line x1="120" y1="80" x2="120" y2="250" stroke="#1a3048" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="370" y1="80" x2="370" y2="250" stroke="#1a3048" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="240" y1="250" x2="240" y2="380" stroke="#1a3048" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="120" y1="250" x2="120" y2="380" stroke="#1a3048" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="370" y1="250" x2="370" y2="380" stroke="#1a3048" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <circle cx="60" cy="80" r="16" stroke="#ff6b00" stroke-width="1.5" opacity="0.7"/>
+        <text x="54" y="85" fill="#ff6b00" font-size="12" font-family="monospace" opacity="0.7">G</text>
+        <circle cx="420" cy="80" r="16" stroke="#ff6b00" stroke-width="1.5" opacity="0.7"/>
+        <text x="414" y="85" fill="#ff6b00" font-size="12" font-family="monospace" opacity="0.7">G</text>
+        <polygon points="60,264 72,286 48,286" stroke="#5a8099" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <line x1="60" y1="250" x2="60" y2="264" stroke="#5a8099" stroke-width="1.2" opacity="0.6"/>
+        <polygon points="420,264 432,286 408,286" stroke="#5a8099" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <line x1="420" y1="250" x2="420" y2="264" stroke="#5a8099" stroke-width="1.2" opacity="0.6"/>
+        <line x1="180" y1="80" x2="206" y2="80" stroke="#00c8ff" stroke-width="1.5" opacity="0.9">
+          <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="294" y1="80" x2="300" y2="80" stroke="#00c8ff" stroke-width="1.5" opacity="0.9">
+          <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+        </line>
+      </g>
+      <text x="12" y="16" fill="#1a3048" font-size="9" font-family="monospace" letter-spacing="2">SINGLE LINE DIAGRAM — PSGER</text>
+      <rect x="8" y="4" width="220" height="14" stroke="#1a3048" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="reveal">
+    <p class="section-tag">// About PSGER</p>
+    <h2 class="section-title">Built for the Modern Grid</h2>
+    <p class="section-desc" style="max-width:100%">PSGER was founded by power engineers with a conviction that rigorous analysis and innovative research must go hand in hand. We serve utilities, independent power producers, developers, and regulatory bodies navigating the complexity of the evolving grid.</p>
+    <p class="section-desc" style="max-width:100%; margin-top:16px;">Our multidisciplinary team combines deep expertise in classical power systems with cutting-edge computational methods — bringing academic rigor to real-world engineering challenges.</p>
+    <div style="margin-top:36px; display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);">
+        <span style="color:var(--accent)">▸</span> NERC / IEEE Standards Compliance
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);">
+        <span style="color:var(--accent)">▸</span> PSS/E · PowerWorld · PSCAD · MATLAB
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);">
+        <span style="color:var(--accent)">▸</span> Peer-Reviewed Research & Publications
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);">
+        <span style="color:var(--accent)">▸</span> Utility, IPP, & Developer Clients
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-tag">// Knowledge & Innovation</p>
+      <h2 class="section-title">Research Focus Areas</h2>
+      <p class="section-desc">Ongoing work at the intersection of power engineering, control theory, and computational intelligence.</p>
+    </div>
+
+    <div class="research-list reveal">
+      <a class="research-item" href="#">
+        <div class="research-year">2025</div>
+        <div class="research-title">Dynamic Stability of Inverter-Dominated Grids Under High IBR Penetration</div>
+        <div class="research-tag active">Active</div>
+      </a>
+      <a class="research-item" href="#">
+        <div class="research-year">2025</div>
+        <div class="research-title">Optimal Siting of Grid-Scale Battery Storage for Frequency Regulation</div>
+        <div class="research-tag active">Active</div>
+      </a>
+      <a class="research-item" href="#">
+        <div class="research-year">2024</div>
+        <div class="research-title">HVDC Overlay Networks for Long-Distance Renewable Transmission</div>
+        <div class="research-tag">Published</div>
+      </a>
+      <a class="research-item" href="#">
+        <div class="research-year">2024</div>
+        <div class="research-title">Machine Learning Approaches to Contingency Screening in Large-Scale Networks</div>
+        <div class="research-tag">Published</div>
+      </a>
+      <a class="research-item" href="#">
+        <div class="research-year">2024</div>
+        <div class="research-title">Inertia Estimation Techniques for Low-Inertia Power Systems</div>
+        <div class="research-tag">Published</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header reveal">
+    <p class="section-tag">// Get In Touch</p>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-desc" style="margin:12px auto 0;text-align:center;">Whether you need a study, a second opinion, or a long-term engineering partner, we're ready to engage.</p>
+  </div>
+
+  <a href="mailto:info@psger.com" class="btn btn-primary reveal" style="margin-bottom:48px;">Send Us a Message</a>
+
+  <div class="contact-box reveal">
+    <div class="contact-item">
+      <div class="contact-label">Email</div>
+      <div class="contact-value"><a href="mailto:info@psger.com">info@psger.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Headquarters</div>
+      <div class="contact-value">United States</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Availability</div>
+      <div class="contact-value"><span class="pulse-dot"></span>Accepting Projects</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 PSGER. Power Systems Grid Engineering & Research.</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
