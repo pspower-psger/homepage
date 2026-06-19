@@ -3,938 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PSGER | Power Systems Grid Engineering & Research</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>PSGER - Power Systems and Grid Engineering Research</title>
+
 <style>
-  :root {
-    --navy: #1a3a6b;
-    --navy-dark: #122850;
-    --saffron: #e07b00;
-    --saffron-light: #f5a623;
-    --green: #1a6b3a;
-    --white: #ffffff;
-    --off-white: #f5f5f0;
-    --light-gray: #e8e8e0;
-    --mid-gray: #c0bdb0;
-    --text: #1a1a1a;
-    --text-mid: #444444;
-    --text-light: #666666;
-    --border: #c8c4b0;
-    --link: #1a3a6b;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 14px;
-    color: var(--text);
-    background: var(--off-white);
-    line-height: 1.6;
-  }
-
-  a { color: var(--link); text-decoration: underline; }
-  a:hover { color: var(--saffron); }
-
-  /* ── TOP UTILITY BAR ── */
-  .utility-bar {
-    background: #f0ede0;
-    border-bottom: 1px solid var(--border);
-    padding: 4px 0;
-    font-size: 11px;
-    color: var(--text-light);
-  }
-
-  .utility-bar .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .utility-bar a { color: var(--text-light); font-size: 11px; margin-left: 12px; }
-  .utility-bar a:hover { color: var(--navy); }
-
-  .skip-link {
-    font-size: 11px;
-    color: var(--text-light);
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: var(--white);
-    border-bottom: 3px solid var(--saffron);
-  }
-
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .logo-emblem {
-    width: 70px;
-    height: 70px;
-    flex-shrink: 0;
-  }
-
-  .header-text {}
-
-  .org-name-hi {
-    font-family: 'Noto Serif', serif;
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.3;
-    margin-bottom: 2px;
-  }
-
-  .org-name-en {
-    font-family: 'Noto Serif', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-  }
-
-  .org-tagline {
-    font-size: 12px;
-    color: var(--text-light);
-    margin-top: 2px;
-  }
-
-  .header-right {
-    margin-left: auto;
-    text-align: right;
-  }
-
-  .header-right img { height: 60px; }
-
-  /* ── NAV ── */
-  nav {
-    background: var(--navy);
-    border-bottom: 3px solid var(--saffron);
-  }
-
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    align-items: stretch;
-  }
-
-  .nav-inner a {
-    display: block;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 10px 16px;
-    border-right: 1px solid rgba(255,255,255,0.15);
-    transition: background 0.15s;
-    white-space: nowrap;
-  }
-
-  .nav-inner a:first-child { border-left: 1px solid rgba(255,255,255,0.15); }
-  .nav-inner a:hover, .nav-inner a.active { background: var(--saffron); color: var(--white); }
-
-  /* ── TICKER ── */
-  .ticker {
-    background: #fff8e8;
-    border-bottom: 1px solid #e0d080;
-    padding: 6px 0;
-    overflow: hidden;
-  }
-
-  .ticker-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .ticker-label {
-    background: var(--saffron);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .ticker-track {
-    overflow: hidden;
-    flex: 1;
-  }
-
-  .ticker-text {
-    font-size: 12px;
-    color: var(--text-mid);
-    white-space: nowrap;
-    animation: ticker 30s linear infinite;
-    display: inline-block;
-  }
-
-  @keyframes ticker {
-    from { transform: translateX(100%); }
-    to   { transform: translateX(-100%); }
-  }
-
-  /* ── LAYOUT ── */
-  .page-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-
-  .main-layout {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 16px;
-    align-items: start;
-  }
-
-  /* ── BREADCRUMB ── */
-  .breadcrumb {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .breadcrumb a { color: var(--navy); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .breadcrumb span { margin: 0 4px; }
-
-  /* ── HERO BANNER ── */
-  .hero-banner {
-    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
-    color: white;
-    padding: 28px 28px;
-    margin-bottom: 16px;
-    border: 1px solid var(--navy-dark);
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .hero-banner-text h2 {
-    font-family: 'Noto Serif', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-
-  .hero-banner-text p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    max-width: 540px;
-    line-height: 1.6;
-  }
-
-  .hero-banner-icon {
-    flex-shrink: 0;
-    opacity: 0.25;
-  }
-
-  /* ── SECTION BOXES ── */
-  .box {
-    background: var(--white);
-    border: 1px solid var(--border);
-    margin-bottom: 16px;
-  }
-
-  .box-header {
-    background: var(--navy);
-    color: white;
-    padding: 8px 14px;
-    font-size: 13px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Noto Serif', serif;
-    letter-spacing: 0.02em;
-  }
-
-  .box-header.saffron { background: var(--saffron); }
-  .box-header.green   { background: var(--green); }
-
-  .box-body { padding: 14px; }
-
-  /* ── QUICK LINKS (icon grid) ── */
-  .quick-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 16px;
-  }
-
-  .quick-link-item {
-    background: var(--white);
-    padding: 14px 10px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--navy);
-    font-size: 12px;
-    font-weight: 500;
-    transition: background 0.15s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .quick-link-item:hover {
-    background: #eef2f9;
-    color: var(--navy);
-    text-decoration: none;
-  }
-
-  .quick-link-item svg { color: var(--saffron); }
-
-  /* ── ABOUT SECTION ── */
-  .about-text p {
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.8;
-    margin-bottom: 10px;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 14px;
-  }
-
-  .about-stat {
-    background: var(--off-white);
-    padding: 10px 14px;
-    text-align: center;
-  }
-
-  .about-stat .num {
-    font-family: 'Noto Serif', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    display: block;
-  }
-
-  .about-stat .lbl {
-    font-size: 11px;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── RESEARCH LIST ── */
-  .research-list { list-style: none; }
-
-  .research-list li {
-    border-bottom: 1px solid var(--light-gray);
-    padding: 10px 0;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .research-list li:last-child { border-bottom: none; }
-
-  .research-list .bullet {
-    color: var(--saffron);
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .research-list .r-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.4;
-    margin-bottom: 2px;
-  }
-
-  .research-list .r-meta {
-    font-size: 11px;
-    color: var(--text-light);
-  }
-
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    padding: 1px 6px;
-    border: 1px solid;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-
-  .badge-active  { border-color: var(--green); color: var(--green); }
-  .badge-pub     { border-color: var(--text-light); color: var(--text-light); }
-
-  /* ── PUBLICATIONS ── */
-  .pub-list { list-style: none; }
-
-  .pub-list li {
-    border-bottom: 1px solid var(--light-gray);
-    padding: 10px 0;
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-
-  .pub-list li:last-child { border-bottom: none; }
-
-  .pub-list .pub-title {
-    color: var(--navy);
-    font-weight: 500;
-  }
-
-  .pub-list .pub-meta {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 2px;
-  }
-
-  /* ── SIDEBAR ── */
-  .sidebar {}
-
-  .notice-list { list-style: none; }
-
-  .notice-list li {
-    border-bottom: 1px solid var(--light-gray);
-    padding: 8px 0;
-    font-size: 12px;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .notice-list li:last-child { border-bottom: none; }
-
-  .notice-list .new-tag {
-    background: #c0392b;
-    color: white;
-    font-size: 9px;
-    padding: 1px 4px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    animation: blink 1.5s step-end infinite;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  .notice-list a {
-    color: var(--navy);
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .notice-date {
-    font-size: 10px;
-    color: var(--text-light);
-    display: block;
-    margin-top: 2px;
-  }
-
-  /* Contact box */
-  .contact-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .contact-table td { padding: 6px 8px; border-bottom: 1px solid var(--light-gray); vertical-align: top; }
-  .contact-table td:first-child { color: var(--text-light); font-weight: 500; width: 80px; white-space: nowrap; }
-  .contact-table tr:last-child td { border-bottom: none; }
-
-  /* Services list */
-  .services-list { list-style: none; }
-  .services-list li {
-    padding: 6px 0;
-    border-bottom: 1px solid var(--light-gray);
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .services-list li:last-child { border-bottom: none; }
-  .services-list li::before { content: '›'; color: var(--saffron); font-weight: 700; font-size: 14px; }
-  .services-list a { text-decoration: none; color: var(--navy); }
-  .services-list a:hover { text-decoration: underline; }
-
-  /* ── FOOTER ── */
-  .footer-top {
-    background: var(--navy-dark);
-    color: rgba(255,255,255,0.75);
-    padding: 18px 0;
-    font-size: 12px;
-    margin-top: 20px;
-    border-top: 3px solid var(--saffron);
-  }
-
-  .footer-top .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 24px;
-  }
-
-  .footer-top h4 {
-    color: white;
-    font-size: 12px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .footer-top ul { list-style: none; }
-  .footer-top ul li { margin-bottom: 4px; }
-  .footer-top ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; }
-  .footer-top ul a:hover { color: var(--saffron-light); text-decoration: underline; }
-
-  .footer-bottom {
-    background: #0c1f3d;
-    color: rgba(255,255,255,0.5);
-    font-size: 11px;
-    padding: 8px 0;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-bottom .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-bottom a { color: rgba(255,255,255,0.5); }
-  .footer-bottom a:hover { color: var(--saffron-light); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .main-layout { grid-template-columns: 1fr; }
-    .sidebar { order: -1; }
-    .quick-links { grid-template-columns: repeat(2, 1fr); }
-    .footer-top .inner { grid-template-columns: 1fr; gap: 16px; }
-    .footer-bottom .inner { flex-direction: column; gap: 4px; }
-    .header-inner { flex-wrap: wrap; }
-    .nav-inner { flex-wrap: wrap; }
-    .nav-inner a { font-size: 12px; padding: 8px 10px; }
-    .hero-banner { flex-direction: column; }
-    .about-stats { grid-template-columns: repeat(2, 1fr); }
-  }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    line-height:1.6;
+    color:#222;
+    background:#f5f7fa;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Header */
+header{
+    background:#003366;
+    color:white;
+}
+
+.top-header{
+    padding:20px 0;
+}
+
+.company-name{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.tagline{
+    font-size:14px;
+    margin-top:5px;
+}
+
+/* Navigation */
+nav{
+    background:#00509e;
+}
+
+nav .container{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    display:block;
+}
+
+nav a:hover{
+    background:#003366;
+}
+
+/* Hero */
+.hero{
+    background:white;
+    padding:80px 20px;
+    text-align:center;
+    border-bottom:1px solid #ccc;
+}
+
+.hero h1{
+    color:#003366;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#003366;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    margin:5px;
+}
+
+.btn:hover{
+    background:#00509e;
+}
+
+/* Sections */
+section{
+    padding:60px 0;
+}
+
+.section-title{
+    color:#003366;
+    margin-bottom:25px;
+    border-bottom:2px solid #003366;
+    padding-bottom:10px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border:1px solid #d6d6d6;
+}
+
+.card h3{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+/* Careers table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+table th,
+table td{
+    border:1px solid #ccc;
+    padding:12px;
+    text-align:left;
+}
+
+table th{
+    background:#003366;
+    color:white;
+}
+
+/* Contact */
+.contact-box{
+    background:white;
+    padding:25px;
+    border:1px solid #ccc;
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+}
+
+.contact-box button{
+    background:#003366;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+.contact-box button:hover{
+    background:#00509e;
+}
+
+/* Footer */
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+footer a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+@media(max-width:768px){
+    nav .container{
+        flex-direction:column;
+    }
+}
 </style>
 </head>
 <body>
 
-<!-- UTILITY BAR -->
-<div class="utility-bar">
-  <div class="inner">
-    <span class="skip-link">Last Updated: June 2025</span>
-    <div>
-      <a href="#">Screen Reader</a>
-      <a href="#">A-</a>
-      <a href="#">A</a>
-      <a href="#">A+</a>
-      <a href="#">हिन्दी</a>
-    </div>
-  </div>
-</div>
-
-<!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <!-- Emblem SVG -->
-    <svg class="logo-emblem" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="35" cy="35" r="33" stroke="#1a3a6b" stroke-width="2" fill="#f5f5f0"/>
-      <circle cx="35" cy="35" r="26" stroke="#e07b00" stroke-width="1.5" fill="none"/>
-      <!-- Lightning bolt -->
-      <path d="M38 14 L28 36 L35 36 L32 56 L44 30 L37 30 Z" fill="#1a3a6b" opacity="0.85"/>
-      <!-- Small gear ring suggestion -->
-      <circle cx="35" cy="35" r="10" stroke="#1a6b3a" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
-      <!-- Bottom text arc placeholder -->
-      <path d="M16 52 Q35 62 54 52" stroke="#e07b00" stroke-width="1" fill="none"/>
-    </svg>
-
-    <div class="header-text">
-      <div class="org-name-hi">पावर सिस्टम्स ग्रिड इंजीनियरिंग एवं अनुसंधान</div>
-      <div class="org-name-en">PSGER</div>
-      <div class="org-tagline">Power Systems Grid Engineering &amp; Research</div>
+    <div class="container top-header">
+        <div class="company-name">PSGER</div>
+        <div class="tagline">
+            Power Systems and Grid Engineering Research Pvt Ltd
+        </div>
     </div>
 
-    <!-- Tri-colour stripe as decoration -->
-    <div class="header-right">
-      <div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end;">
-        <div style="width:80px;height:5px;background:#e07b00;"></div>
-        <div style="width:80px;height:5px;background:#1a3a6b;"></div>
-        <div style="width:80px;height:5px;background:#1a6b3a;"></div>
-        <div style="font-size:10px;color:var(--text-light);margin-top:4px;">Est. 2025</div>
-      </div>
-    </div>
-  </div>
+    <nav>
+        <div class="container">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#research">Research</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
 </header>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About Us</a>
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Welcome to PSGER</h1>
+
+        <p>
+            PSGER provides consulting, research, and engineering solutions
+            for modern power systems, renewable energy integration,
+            grid modernization, cybersecurity, and emerging energy technologies.
+        </p>
+
+        <a href="#services" class="btn">Our Services</a>
+        <a href="#contact" class="btn">Contact Us</a>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Power System Studies</h3>
+                <ul>
+                    <li>Load Flow Studies</li>
+                    <li>Short Circuit Analysis</li>
+                    <li>Dynamic Stability Studies</li>
+                    <li>Grid Integration Studies</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Research & Development</h3>
+                <ul>
+                    <li>Synchrophasor Analytics</li>
+                    <li>Grid Digital Twins</li>
+                    <li>AI Applications</li>
+                    <li>Cybersecurity Solutions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Training & Education</h3>
+                <ul>
+                    <li>Utility Training</li>
+                    <li>Industry Workshops</li>
+                    <li>Research Guidance</li>
+                    <li>Technical Tutorials</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="research">
+    <div class="container">
+        <h2 class="section-title">Research</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Grid Modernization</h3>
+                <p>
+                    Advanced planning and operation of future electric grids.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Large Load & Colocation</h3>
+                <p>
+                    Studies on data centers, industrial loads,
+                    and colocated generation resources.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Cyber-Physical Security</h3>
+                <p>
+                    Detection and mitigation of cyber threats
+                    impacting power system operations.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Renewable Energy Integration</h3>
+                <p>
+                    Solar, wind, storage, DERs, and grid impacts.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="careers">
+    <div class="container">
+        <h2 class="section-title">Careers</h2>
+
+        <p style="margin-bottom:20px;">
+            We welcome students, researchers, and engineers interested
+            in advancing power system technologies.
+        </p>
+
+        <table>
+            <tr>
+                <th>Position</th>
+                <th>Mode</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td>Research Assistant</td>
+                <td>Remote</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>Intern</td>
+                <td>Remote</td>
+                <td>India</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact-box">
+
+            <p><strong>PSGER</strong></p>
+            <p>Power Systems and Grid Engineering Research Pvt Ltd</p>
+            <br>
+
+            <p>Email: info@psger.com</p>
+            <p>Phone: +91-XXXXXXXXXX</p>
+            <p>Location: India</p>
+
+            <br>
+
+            <form>
+                <label>Name</label>
+                <input type="text">
+
+                <label>Email</label>
+                <input type="email">
+
+                <label>Message</label>
+                <textarea rows="5"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        © 2026 PSGER - Power Systems and Grid Engineering Research Pvt Ltd
+    </p>
+
+    <br>
+
+    <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
+    <a href="#careers">Careers</a>
     <a href="#contact">Contact Us</a>
-  </div>
-</nav>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-label">Notice</span>
-    <div class="ticker-track">
-      <span class="ticker-text">
-        New Project Announcement: Grid Stability Study for Renewable Integration — 2025 &nbsp;|&nbsp;
-        PSGER Research Paper accepted at IEEE PES General Meeting 2025 &nbsp;|&nbsp;
-        Invitation for Expressions of Interest: Transmission Planning Consultancy &nbsp;|&nbsp;
-        PSGER is now accepting new project engagements for FY 2025–26
-      </span>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE CONTENT -->
-<div class="page-inner" id="home">
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <a href="#">Home</a>
-  </div>
-
-  <!-- HERO BANNER -->
-  <div class="hero-banner">
-    <div class="hero-banner-text">
-      <h2>Power Systems Grid Engineering &amp; Research</h2>
-      <p>PSGER is dedicated to advancing grid infrastructure through rigorous engineering analysis, applied research, and technical consulting for power utilities, developers, and regulators across India and beyond.</p>
-    </div>
-    <div class="hero-banner-icon">
-      <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-        <circle cx="45" cy="45" r="40" stroke="white" stroke-width="1.5"/>
-        <path d="M48 10 L34 46 L44 46 L41 80 L58 38 L48 38 Z" fill="white"/>
-      </svg>
-    </div>
-  </div>
-
-  <!-- QUICK LINKS -->
-  <div class="quick-links">
-    <a class="quick-link-item" href="#services">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="2" y="8" width="6" height="14" rx="1"/>
-        <rect x="11" y="4" width="6" height="18" rx="1"/>
-        <rect x="20" y="11" width="6" height="11" rx="1"/>
-      </svg>
-      Transmission Planning
-    </a>
-    <a class="quick-link-item" href="#services">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="14" cy="14" r="7"/>
-        <line x1="14" y1="2" x2="14" y2="7"/>
-        <line x1="14" y1="21" x2="14" y2="26"/>
-        <line x1="2" y1="14" x2="7" y2="14"/>
-        <line x1="21" y1="14" x2="26" y2="14"/>
-      </svg>
-      Renewable Integration
-    </a>
-    <a class="quick-link-item" href="#services">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polyline points="2,22 8,13 14,17 20,7 26,12"/>
-      </svg>
-      Stability Studies
-    </a>
-    <a class="quick-link-item" href="#services">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="5" width="22" height="16" rx="1"/>
-        <line x1="3" y1="11" x2="25" y2="11"/>
-        <line x1="10" y1="21" x2="10" y2="25"/>
-        <line x1="18" y1="21" x2="18" y2="25"/>
-        <line x1="7" y1="25" x2="21" y2="25"/>
-      </svg>
-      Protection &amp; Control
-    </a>
-    <a class="quick-link-item" href="#research">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="8"/>
-        <line x1="18" y1="18" x2="26" y2="26"/>
-      </svg>
-      Research Areas
-    </a>
-    <a class="quick-link-item" href="#contact">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="2" y="6" width="24" height="16" rx="2"/>
-        <polyline points="2,6 14,16 26,6"/>
-      </svg>
-      Contact Us
-    </a>
-  </div>
-
-  <!-- MAIN + SIDEBAR -->
-  <div class="main-layout">
-
-    <!-- MAIN COLUMN -->
-    <div class="main-col">
-
-      <!-- ABOUT -->
-      <div class="box" id="about">
-        <div class="box-header">&#9632; About PSGER</div>
-        <div class="box-body">
-          <div class="about-text">
-            <p>PSGER (Power Systems Grid Engineering &amp; Research) is a specialized technical organization engaged in engineering consultancy and applied research in the field of electric power systems. Founded with the objective of bridging the gap between academic research and practical grid engineering, PSGER serves utilities, independent power producers, grid operators, and government bodies.</p>
-            <p>Our team of qualified power engineers brings expertise across transmission planning, system stability, protection engineering, and advanced grid studies. We adhere to IEEE, IEC, and CEA standards in all our engagements.</p>
-          </div>
-          <div class="about-stats">
-            <div class="about-stat"><span class="num">500+</span><span class="lbl">MW Analyzed</span></div>
-            <div class="about-stat"><span class="num">40+</span><span class="lbl">Projects Completed</span></div>
-            <div class="about-stat"><span class="num">12</span><span class="lbl">Research Areas</span></div>
-            <div class="about-stat"><span class="num">2025</span><span class="lbl">Established</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICES -->
-      <div class="box" id="services">
-        <div class="box-header saffron">&#9632; Services Offered</div>
-        <div class="box-body">
-          <ul class="services-list" style="list-style:none;">
-            <li><a href="#">Transmission System Planning &amp; Load Flow Studies</a></li>
-            <li><a href="#">Renewable Energy Grid Interconnection Studies</a></li>
-            <li><a href="#">Transient &amp; Voltage Stability Analysis</a></li>
-            <li><a href="#">Protection Relay Coordination &amp; Settings</a></li>
-            <li><a href="#">Short Circuit &amp; Fault Analysis</a></li>
-            <li><a href="#">SCADA / EMS Integration Consulting</a></li>
-            <li><a href="#">Grid Resilience &amp; N-1 Contingency Studies</a></li>
-            <li><a href="#">HVDC &amp; Power Electronics System Studies</a></li>
-          </ul>
-          <div style="margin-top:12px;padding:10px 12px;background:var(--off-white);border-left:3px solid var(--saffron);font-size:12px;color:var(--text-mid);">
-            For project enquiries and service requests, please write to us at <a href="mailto:info@psger.com">info@psger.com</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RESEARCH -->
-      <div class="box" id="research">
-        <div class="box-header green">&#9632; Research Areas</div>
-        <div class="box-body">
-          <ul class="research-list">
-            <li>
-              <span class="bullet">&#9654;</span>
-              <div>
-                <div class="r-title">Dynamic Stability of Inverter-Dominated Grids Under High IBR Penetration <span class="badge badge-active">Active</span></div>
-                <div class="r-meta">Ongoing · 2025</div>
-              </div>
-            </li>
-            <li>
-              <span class="bullet">&#9654;</span>
-              <div>
-                <div class="r-title">Optimal Siting of Grid-Scale Battery Storage for Frequency Regulation <span class="badge badge-active">Active</span></div>
-                <div class="r-meta">Ongoing · 2025</div>
-              </div>
-            </li>
-            <li>
-              <span class="bullet">&#9654;</span>
-              <div>
-                <div class="r-title">HVDC Overlay Networks for Long-Distance Renewable Energy Transmission <span class="badge badge-pub">Published</span></div>
-                <div class="r-meta">Completed · 2024</div>
-              </div>
-            </li>
-            <li>
-              <span class="bullet">&#9654;</span>
-              <div>
-                <div class="r-title">Machine Learning Approaches to Contingency Screening in Large-Scale Networks <span class="badge badge-pub">Published</span></div>
-                <div class="r-meta">Completed · 2024</div>
-              </div>
-            </li>
-            <li>
-              <span class="bullet">&#9654;</span>
-              <div>
-                <div class="r-title">Inertia Estimation Techniques for Low-Inertia Power Systems <span class="badge badge-pub">Published</span></div>
-                <div class="r-meta">Completed · 2024</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- PUBLICATIONS -->
-      <div class="box" id="publications">
-        <div class="box-header">&#9632; Publications</div>
-        <div class="box-body">
-          <ul class="pub-list">
-            <li>
-              <div class="pub-title">"HVDC Overlay Networks for Long-Distance Renewable Energy Transmission"</div>
-              <div class="pub-meta">IEEE Transactions on Power Systems · Vol. 39, 2024 · DOI: 10.1109/TPWRS.2024.XXXXX</div>
-            </li>
-            <li>
-              <div class="pub-title">"Machine Learning Approaches to Contingency Screening in Large-Scale Power Networks"</div>
-              <div class="pub-meta">IEEE PES General Meeting 2024 · Conference Paper</div>
-            </li>
-            <li>
-              <div class="pub-title">"Inertia Estimation Techniques for Low-Inertia Power Systems"</div>
-              <div class="pub-meta">Electric Power Systems Research · Vol. 228, 2024</div>
-            </li>
-          </ul>
-          <div style="margin-top:10px;font-size:12px;color:var(--text-light);">
-            For full list of publications and technical reports, <a href="#">click here</a>.
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /main-col -->
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-
-      <!-- NOTICES -->
-      <div class="box">
-        <div class="box-header saffron">&#9632; Notices / Announcements</div>
-        <div class="box-body">
-          <ul class="notice-list">
-            <li>
-              <span class="new-tag">NEW</span>
-              <div>
-                <a href="#">Expression of Interest: Transmission Planning Consultancy 2025–26</a>
-                <span class="notice-date">01 Jun 2025</span>
-              </div>
-            </li>
-            <li>
-              <span class="new-tag">NEW</span>
-              <div>
-                <a href="#">Paper accepted at IEEE PES General Meeting 2025</a>
-                <span class="notice-date">20 May 2025</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <a href="#">PSGER commences FY 2025–26 project engagements</a>
-                <span class="notice-date">01 Apr 2025</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <a href="#">Technical Workshop on Grid Stability — Proceedings Available</a>
-                <span class="notice-date">15 Mar 2025</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <a href="#">Annual Technical Report 2024 Released</a>
-                <span class="notice-date">01 Feb 2025</span>
-              </div>
-            </li>
-          </ul>
-          <div style="text-align:right;margin-top:8px;"><a href="#" style="font-size:11px;">View All Notices &raquo;</a></div>
-        </div>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="box" id="contact">
-        <div class="box-header">&#9632; Contact Information</div>
-        <div class="box-body">
-          <table class="contact-table">
-            <tr><td>Email</td><td><a href="mailto:info@psger.com">info@psger.com</a></td></tr>
-            <tr><td>Website</td><td><a href="#">www.psger.com</a></td></tr>
-            <tr><td>Office</td><td>India</td></tr>
-            <tr><td>Hours</td><td>Mon–Fri, 09:00–17:30</td></tr>
-            <tr><td>Status</td><td><span style="color:var(--green);font-weight:600;">&#9679; Accepting Projects</span></td></tr>
-          </table>
-        </div>
-      </div>
-
-      <!-- TOOLS -->
-      <div class="box">
-        <div class="box-header">&#9632; Quick Access</div>
-        <div class="box-body" style="padding:0;">
-          <ul class="services-list" style="padding:10px 14px;">
-            <li><a href="#about">About PSGER</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#research">Research Areas</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="mailto:info@psger.com">Send Enquiry</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div><!-- /sidebar -->
-
-  </div><!-- /main-layout -->
-
-</div><!-- /page-inner -->
-
-<!-- FOOTER -->
-<div class="footer-top">
-  <div class="inner">
-    <div>
-      <h4>About PSGER</h4>
-      <p style="font-size:12px;line-height:1.7;color:rgba(255,255,255,0.6);">PSGER is a specialized power systems engineering and research organization providing technical consulting and applied research services to utilities, IPPs, and regulators.</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Important Links</h4>
-      <ul>
-        <li><a href="#">IEEE Power & Energy Society</a></li>
-        <li><a href="#">Central Electricity Authority</a></li>
-        <li><a href="#">POSOCO / NLDC</a></li>
-        <li><a href="#">MNRE India</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="footer-bottom">
-  <div class="inner">
-    <span>&copy; 2025 PSGER — Power Systems Grid Engineering &amp; Research. All Rights Reserved.</span>
-    <span>
-      <a href="#">Disclaimer</a> &nbsp;|&nbsp;
-      <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
-      <a href="#">Site Map</a>
-    </span>
-  </div>
-</div>
+</footer>
 
 </body>
 </html>
