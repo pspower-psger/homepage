@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PSGER - Power Systems and Grid Engineering Research</title>
 
+
 <style>
 *{
     margin:0;
@@ -12,17 +13,32 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    line-height:1.6;
-    color:#222;
+    font-family:Arial, sans-serif;
     background:#f5f7fa;
+    color:#222;
+    line-height:1.6;
 }
 
 .container{
     width:90%;
     max-width:1200px;
     margin:auto;
+}
+
+/* Header */
+header{
+    background:#ffffff;
+    border-bottom:3px solid #0A42C8;
+}
+
+.top-header{
+    text-align:center;
+    padding:15px 0;
 }
 
 /* Header */
@@ -40,74 +56,72 @@ header{
     font-weight:bold;
 }
 
-.tagline{
-    font-size:14px;
-    margin-top:5px;
+.logo{
+    width:100%;
+    max-width:850px;
+    height:auto;
 }
 
 /* Navigation */
 nav{
-    background:#00509e;
+    background:#0A42C8;
 }
 
 nav .container{
     display:flex;
+    justify-content:center;
     flex-wrap:wrap;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    padding:15px 20px;
-    display:block;
+    padding:15px 25px;
+    font-weight:bold;
+    transition:0.3s;
 }
 
 nav a:hover{
-    background:#003366;
+    background:#0836a5;
 }
 
-/* Hero */
+/* Hero Section */
 .hero{
     background:white;
-    padding:80px 20px;
     text-align:center;
-    border-bottom:1px solid #ccc;
+    padding:80px 20px;
 }
 
 .hero h1{
-    color:#003366;
-    margin-bottom:15px;
+    color:#0A42C8;
+    margin-bottom:20px;
+    font-size:38px;
 }
 
 .hero p{
-    max-width:800px;
+    max-width:850px;
     margin:auto;
-    margin-bottom:25px;
+    font-size:18px;
 }
 
-.btn{
-    display:inline-block;
-    background:#003366;
-    color:white;
-    text-decoration:none;
-    padding:10px 20px;
-    margin:5px;
-}
 
-.btn:hover{
-    background:#00509e;
+.hero{
+    background:white;
+    text-align:center;
+    padding:25px 20px 35px 20px;
 }
 
 /* Sections */
+
 section{
-    padding:60px 0;
+    padding:40px 0;
 }
 
 .section-title{
-    color:#003366;
-    margin-bottom:25px;
-    border-bottom:2px solid #003366;
+    color:#0A42C8;
+    border-bottom:2px solid #0A42C8;
     padding-bottom:10px;
+    margin-bottom:30px;
 }
 
 .cards{
@@ -118,12 +132,12 @@ section{
 
 .card{
     background:white;
-    padding:20px;
-    border:1px solid #d6d6d6;
+    border:1px solid #d9d9d9;
+    padding:25px;
 }
 
 .card h3{
-    color:#003366;
+    color:#0A42C8;
     margin-bottom:10px;
 }
 
@@ -131,7 +145,7 @@ section{
     padding-left:20px;
 }
 
-/* Careers table */
+/* Table */
 table{
     width:100%;
     border-collapse:collapse;
@@ -142,32 +156,31 @@ table th,
 table td{
     border:1px solid #ccc;
     padding:12px;
-    text-align:left;
 }
 
 table th{
-    background:#003366;
+    background:#0A42C8;
     color:white;
 }
 
 /* Contact */
 .contact-box{
     background:white;
-    padding:25px;
     border:1px solid #ccc;
+    padding:25px;
 }
 
 .contact-box input,
 .contact-box textarea{
     width:100%;
     padding:10px;
-    margin-top:8px;
-    margin-bottom:15px;
     border:1px solid #ccc;
+    margin-top:5px;
+    margin-bottom:15px;
 }
 
 .contact-box button{
-    background:#003366;
+    background:#0A42C8;
     color:white;
     border:none;
     padding:10px 20px;
@@ -175,16 +188,15 @@ table th{
 }
 
 .contact-box button:hover{
-    background:#00509e;
+    background:#0836a5;
 }
 
 /* Footer */
 footer{
-    background:#003366;
+    background:#0A42C8;
     color:white;
     text-align:center;
-    padding:20px;
-    margin-top:30px;
+    padding:25px;
 }
 
 footer a{
@@ -193,9 +205,20 @@ footer a{
     margin:0 10px;
 }
 
+/* Mobile */
 @media(max-width:768px){
+
+    .hero h1{
+        font-size:28px;
+    }
+
     nav .container{
         flex-direction:column;
+        text-align:center;
+    }
+
+    nav a{
+        border-top:1px solid rgba(255,255,255,0.2);
     }
 }
 </style>
@@ -206,7 +229,7 @@ footer a{
     <div class="container top-header">
         <div class="company-name">PSGER</div>
         <div class="tagline">
-            Power Systems and Grid Engineering Research Pvt Ltd
+            Power Systems Grid Engineering and Research
         </div>
     </div>
 
@@ -219,110 +242,125 @@ footer a{
             <a href="#contact">Contact Us</a>
         </div>
     </nav>
+
 </header>
 
 <section id="home" class="hero">
+
     <div class="container">
-        <h1>Welcome to PSGER</h1>
 
         <p>
-            PSGER provides consulting, research, and engineering solutions
-            for modern power systems, renewable energy integration,
-            grid modernization, cybersecurity, and emerging energy technologies.
+            PSGER is a research and engineering consulting company specializing in electric power systems, advanced simulations, transmission and distribution networks, renewable energy integration, and grid modernization.
         </p>
 
-        <a href="#services" class="btn">Our Services</a>
-        <a href="#contact" class="btn">Contact Us</a>
     </div>
+
 </section>
 
 <section id="services">
+
     <div class="container">
+
         <h2 class="section-title">Services</h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Power System Studies</h3>
+                <h3>Large Loads and Datacenters</h3>
                 <ul>
-                    <li>Load Flow Studies</li>
-                    <li>Short Circuit Analysis</li>
-                    <li>Dynamic Stability Studies</li>
-                    <li>Grid Integration Studies</li>
+<li>Grid Interconnection Studies</li>
+<li>Co-located Generation Evaluation</li>
+<li>Dynamic and Transient Stability</li>
+<li>Regulatory and Policy Assessment</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>Research & Development</h3>
+                <h3>Power System Dynamics</h3>
                 <ul>
-                    <li>Synchrophasor Analytics</li>
-                    <li>Grid Digital Twins</li>
-                    <li>AI Applications</li>
-                    <li>Cybersecurity Solutions</li>
+<li>Syncornous Machines</li>
+<li>Grid Forming / Grid Following Inverters</li>
+<li>Transient and Small Signal Stability</li>
+    <li>Controlled Islanding and Optimization</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>Training & Education</h3>
+                <h3>Network Reduction with User-defined Renewables</h3>
                 <ul>
-                    <li>Utility Training</li>
-                    <li>Industry Workshops</li>
-                    <li>Research Guidance</li>
-                    <li>Technical Tutorials</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
-
+            <div class="card">
+                <h3>Grid Cybersecurity</h3>
+                <ul>
+                    <li>Threat Detection</li>
+                    <li>Threat Mitigation</li>
+                </ul>
+            </div>
         </div>
+
     </div>
+
 </section>
 
 <section id="research">
+
     <div class="container">
+
         <h2 class="section-title">Research</h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Grid Modernization</h3>
+                <h3>Large Load & Colocated Generation</h3>
                 <p>
-                    Advanced planning and operation of future electric grids.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Large Load & Colocation</h3>
-                <p>
-                    Studies on data centers, industrial loads,
-                    and colocated generation resources.
+                    Research on data centers, industrial electrification,
+                    and generation-load co-location.
                 </p>
             </div>
 
             <div class="card">
                 <h3>Cyber-Physical Security</h3>
                 <p>
-                    Detection and mitigation of cyber threats
-                    impacting power system operations.
+                    Detection, monitoring, and mitigation of threats
+                    affecting power system operations.
                 </p>
             </div>
 
             <div class="card">
-                <h3>Renewable Energy Integration</h3>
+                <h3>Renewable Integration</h3>
                 <p>
-                    Solar, wind, storage, DERs, and grid impacts.
+                    Solar, wind, storage, DERs,
+                    and future grid technologies.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Grid Modernization</h3>
+                <p>
+                    Advanced planning, operation,
+                    resilience, and grid transformation.
                 </p>
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <section id="careers">
+
     <div class="container">
+
         <h2 class="section-title">Careers</h2>
 
         <p style="margin-bottom:20px;">
-            We welcome students, researchers, and engineers interested
-            in advancing power system technologies.
+            PSGER welcomes students, researchers, and engineers interested
+            in advancing power system technologies and applied research.
         </p>
 
         <table>
@@ -331,28 +369,35 @@ footer a{
                 <th>Mode</th>
                 <th>Location</th>
             </tr>
+
             <tr>
                 <td>Research Assistant</td>
                 <td>Remote</td>
                 <td>India</td>
             </tr>
+
             <tr>
                 <td>Intern</td>
                 <td>Remote</td>
                 <td>India</td>
             </tr>
         </table>
+
     </div>
+
 </section>
 
 <section id="contact">
+
     <div class="container">
+
         <h2 class="section-title">Contact Us</h2>
 
         <div class="contact-box">
 
             <p><strong>PSGER</strong></p>
-            <p>Power Systems and Grid Engineering Research Pvt Ltd</p>
+            <p>Power Systems Grid Engineering and Research Pvt Ltd</p>
+
             <br>
 
             <p>Email: info@psger.com</p>
@@ -362,6 +407,7 @@ footer a{
             <br>
 
             <form>
+
                 <label>Name</label>
                 <input type="text">
 
@@ -372,15 +418,19 @@ footer a{
                 <textarea rows="5"></textarea>
 
                 <button type="submit">Submit</button>
+
             </form>
 
         </div>
+
     </div>
+
 </section>
 
 <footer>
+
     <p>
-        © 2026 PSGER - Power Systems and Grid Engineering Research Pvt Ltd
+        © 2026 PSGER - Power Systems Grid Engineering and Research Pvt Ltd
     </p>
 
     <br>
@@ -390,6 +440,7 @@ footer a{
     <a href="#research">Research</a>
     <a href="#careers">Careers</a>
     <a href="#contact">Contact Us</a>
+
 </footer>
 
 </body>
