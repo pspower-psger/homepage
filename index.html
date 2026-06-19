@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PSGER - Power Systems and Grid Engineering Research</title>
 
+<title>PSGER - Power Systems Grid Engineering and Research</title>
+
+<link rel="icon" type="image/png" href="logo_psger.PNG">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -31,6 +34,7 @@ body{
 }
 
 /* Header */
+
 header{
     background:#ffffff;
     border-bottom:3px solid #0A42C8;
@@ -41,28 +45,16 @@ header{
     padding:15px 0;
 }
 
-/* Header */
-header{
-    background:#003366;
-    color:white;
-}
-
-.top-header{
-    padding:20px 0;
-}
-
-.company-name{
-    font-size:32px;
-    font-weight:bold;
-}
-
-.logo{
+.main-logo{
+    display:block;
+    margin:auto;
     width:100%;
-    max-width:850px;
+    max-width:900px;
     height:auto;
 }
 
 /* Navigation */
+
 nav{
     background:#0A42C8;
 }
@@ -85,30 +77,16 @@ nav a:hover{
     background:#0836a5;
 }
 
-/* Hero Section */
-.hero{
-    background:white;
-    text-align:center;
-    padding:80px 20px;
-}
-
-.hero h1{
-    color:#0A42C8;
-    margin-bottom:20px;
-    font-size:38px;
-}
-
-
+/* Hero */
 
 .hero{
     background:white;
-    text-align:center;
-    padding:25px 20px 35px 20px;
+    padding:25px 20px;
 }
 
 .hero p{
-    width:100%;
     font-size:18px;
+    text-align:justify;
 }
 
 /* Sections */
@@ -145,7 +123,12 @@ section{
     padding-left:20px;
 }
 
-/* Table */
+.card li{
+    margin-bottom:5px;
+}
+
+/* Tables */
+
 table{
     width:100%;
     border-collapse:collapse;
@@ -156,6 +139,7 @@ table th,
 table td{
     border:1px solid #ccc;
     padding:12px;
+    text-align:left;
 }
 
 table th{
@@ -163,35 +147,31 @@ table th{
     color:white;
 }
 
+/* PDF Button */
+
+.pdf-link{
+    background:#0A42C8;
+    color:white;
+    padding:6px 12px;
+    text-decoration:none;
+    border-radius:3px;
+    font-size:14px;
+}
+
+.pdf-link:hover{
+    background:#0836a5;
+}
+
 /* Contact */
+
 .contact-box{
     background:white;
     border:1px solid #ccc;
     padding:25px;
 }
 
-.contact-box input,
-.contact-box textarea{
-    width:100%;
-    padding:10px;
-    border:1px solid #ccc;
-    margin-top:5px;
-    margin-bottom:15px;
-}
-
-.contact-box button{
-    background:#0A42C8;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    cursor:pointer;
-}
-
-.contact-box button:hover{
-    background:#0836a5;
-}
-
 /* Footer */
+
 footer{
     background:#0A42C8;
     color:white;
@@ -206,11 +186,8 @@ footer a{
 }
 
 /* Mobile */
-@media(max-width:768px){
 
-    .hero h1{
-        font-size:28px;
-    }
+@media(max-width:768px){
 
     nav .container{
         flex-direction:column;
@@ -220,17 +197,21 @@ footer a{
     nav a{
         border-top:1px solid rgba(255,255,255,0.2);
     }
+
+    .hero p{
+        font-size:16px;
+    }
 }
+
 </style>
 </head>
+
 <body>
 
 <header>
+
     <div class="container top-header">
-        <div class="company-name">PSGER</div>
-        <div class="tagline">
-            Power Systems Grid Engineering and Research
-        </div>
+        <img src="logo.png" alt="PSGER Logo" class="main-logo">
     </div>
 
     <nav>
@@ -267,20 +248,20 @@ footer a{
             <div class="card">
                 <h3>Large Loads and Datacenters</h3>
                 <ul>
-<li>Grid Interconnection Studies</li>
-<li>Co-located Generation Evaluation</li>
-<li>Dynamic and Transient Stability</li>
-<li>Regulatory and Policy Assessment</li>
+                    <li>Grid Interconnection Studies</li>
+                    <li>Co-located Generation Evaluation</li>
+                    <li>Dynamic and Transient Stability</li>
+                    <li>Regulatory and Policy Assessment</li>
                 </ul>
             </div>
 
             <div class="card">
                 <h3>Power System Dynamics</h3>
                 <ul>
-<li>Syncornous Machines</li>
-<li>Grid Forming / Grid Following Inverters</li>
-<li>Transient and Small Signal Stability</li>
-    <li>Controlled Islanding and Optimization</li>
+                    <li>Synchronous Machines</li>
+                    <li>Grid Forming / Grid Following Inverters</li>
+                    <li>Transient and Small Signal Stability</li>
+                    <li>Controlled Islanding and Optimization</li>
                 </ul>
             </div>
 
@@ -293,6 +274,7 @@ footer a{
                     <li>Dynamic Performance Validation</li>
                 </ul>
             </div>
+
             <div class="card">
                 <h3>Grid Cybersecurity</h3>
                 <ul>
@@ -300,13 +282,12 @@ footer a{
                     <li>Threat Mitigation</li>
                 </ul>
             </div>
+
         </div>
 
     </div>
 
 </section>
-
-
 
 <section id="careers">
 
@@ -318,12 +299,14 @@ footer a{
             PSGER has the following openings:
         </p>
 
-        <!-- <table>
+        <table>
+
             <tr>
                 <th>Position</th>
                 <th>Qualification</th>
                 <th>Mode</th>
                 <th>Date Posted</th>
+                <th>Advertisement</th>
             </tr>
 
             <tr>
@@ -331,30 +314,16 @@ footer a{
                 <td>Post-graduate</td>
                 <td>Remote, Part-time</td>
                 <td>19/06/2026</td>
+                <td>
+                    <a href="PSGER Position - RSI0001.pdf"
+                       target="_blank"
+                       class="pdf-link">
+                       View PDF
+                    </a>
+                </td>
             </tr>
-        </table> -->
 
-        <table>
-    <tr>
-        <th>Position</th>
-        <th>Qualification</th>
-        <th>Mode</th>
-        <th>Date Posted</th>
-        <th>Advertisement</th>
-    </tr>
-
-    <tr>
-        <td>Research Scholar Intern</td>
-        <td>Post-graduate</td>
-        <td>Remote, Part-time</td>
-        <td>19/06/2026</td>
-        <td>
-            <a href="PSGER Position - RSI0001.pdf" target="_blank">
-                View PDF
-            </a>
-        </td>
-    </tr>
-</table>
+        </table>
 
     </div>
 
@@ -369,28 +338,13 @@ footer a{
         <div class="contact-box">
 
             <p><strong>PSGER</strong></p>
-            <p>Power Systems Grid Engineering and Research</p> <br>
-<p>8 Feeder Road, Ariadaha, West Bengal, 700057</p>
-            
-
-            <p>Email: info@psger.com</p>
+            <p>Power Systems Grid Engineering and Research</p>
 
             <br>
 
-            <!--<form>-->
+            <p>8 Feeder Road, Ariadaha, West Bengal, 700057</p>
 
-            <!--    <label>Name</label>-->
-            <!--    <input type="text">-->
-
-            <!--    <label>Email</label>-->
-            <!--    <input type="email">-->
-
-            <!--    <label>Message</label>-->
-            <!--    <textarea rows="5"></textarea>-->
-
-            <!--    <button type="submit">Submit</button>-->
-
-            <!--</form>-->
+            <p>Email: info@psger.com</p>
 
         </div>
 
@@ -401,7 +355,7 @@ footer a{
 <footer>
 
     <p>
-        © 2026 PSGER - Power Systems Grid Engineering and Research Pvt Ltd
+        © 2026 PSGER - PS Grid Engineering and Research Private Limited
     </p>
 
     <br>
