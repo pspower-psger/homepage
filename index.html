@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -45,6 +44,14 @@ header{
     text-align:center;
     padding:15px 0;
 }
+
+/* .main-logo{
+    display:block;
+    margin:auto;
+    width:100%;
+    max-width:500px;
+    height:auto;
+} */
 
 .main-logo{
     display:block;
@@ -103,8 +110,6 @@ section{
     margin-bottom:30px;
 }
 
-/* Service Cards */
-
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -128,59 +133,6 @@ section{
 
 .card li{
     margin-bottom:5px;
-}
-
-/* Simulation Software */
-
-.software-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.software-card{
-    background:white;
-    border:1px solid #d9d9d9;
-    padding:25px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.software-card:hover{
-    border-color:#0A42C8;
-}
-
-.software-card h3{
-    color:#0A42C8;
-    margin-bottom:10px;
-}
-
-.software-card p{
-    font-size:15px;
-    color:#555;
-}
-
-/* Recently Completed Projects */
-
-.projects-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-}
-
-.project-card{
-    background:white;
-    border:1px solid #d9d9d9;
-    padding:25px;
-}
-
-.project-card h3{
-    color:#0A42C8;
-    margin-bottom:10px;
-}
-
-.project-card p{
-    text-align:justify;
 }
 
 /* Tables */
@@ -241,8 +193,53 @@ footer a{
     margin:0 10px;
 }
 
-footer a:hover{
-    text-decoration:underline;
+/* Simulation Software */
+
+.software-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.software-card{
+    background:white;
+    border:1px solid #d9d9d9;
+    padding:25px;
+    text-align:center;
+}
+
+.software-card h3{
+    color:#0A42C8;
+    margin-bottom:8px;
+}
+
+.software-card p{
+    font-size:15px;
+    color:#555;
+}
+
+
+/* Recently Completed Projects */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.project-card{
+    background:white;
+    border:1px solid #d9d9d9;
+    padding:25px;
+}
+
+.project-card h3{
+    color:#0A42C8;
+    margin-bottom:10px;
+}
+
+.project-card p{
+    text-align:justify;
 }
 
 /* Mobile */
@@ -261,597 +258,314 @@ footer a:hover{
     .hero p{
         font-size:16px;
     }
-
-    table{
-        font-size:14px;
-    }
-
-    table th,
-    table td{
-        padding:8px;
-    }
-
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- ==================== HEADER ==================== -->
-
 <header>
 
-```
-<div class="container top-header">
-
-    <img
-        src="logo_psger.PNG"
-        alt="PSGER Logo"
-        class="main-logo"
-    >
-
-</div>
-
-<!-- Navigation -->
-
-<nav>
-
-    <div class="container">
-
-        <a href="#home">Home</a>
-
-        <a href="#services">Services</a>
-
-        <a href="#software">Simulation Software</a>
-
-        <a href="#projects">Projects</a>
-
-        <a href="#careers">Careers</a>
-
-        <a href="#contact">Contact Us</a>
-
+    <div class="container top-header">
+        <img src="logo_psger.PNG" alt="PSGER Logo" class="main-logo">
     </div>
 
-</nav>
-```
+    <nav>
+        <div class="container">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#software">Simulation Software</a>
+            <a href="#projects">Projects</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
 
 </header>
 
-<!-- ==================== HOME ==================== -->
-
 <section id="home" class="hero">
 
-```
-<div class="container">
+    <div class="container">
 
-    <p>
-        PSGER is a research and engineering consulting company
-        specializing in electric power systems, advanced simulations,
-        transmission and distribution networks, renewable energy
-        integration, and grid modernization.
-    </p>
+        <p>
+            PSGER is a research and engineering consulting company specializing in electric power systems, advanced simulations, transmission and distribution networks, renewable energy integration, and grid modernization.
+        </p>
 
-</div>
-```
+    </div>
 
 </section>
-
-<!-- ==================== SERVICES ==================== -->
 
 <section id="services">
 
-```
-<div class="container">
+    <div class="container">
 
-    <h2 class="section-title">Services</h2>
+        <h2 class="section-title">Services</h2>
 
-    <div class="cards">
+        <div class="cards">
 
+            <div class="card">
+                <h3>Large Loads and Datacenters</h3>
+                <ul>
+                    <li>Grid Interconnection Studies</li>
+                    <li>Co-located Generation Evaluation</li>
+                    <li>Dynamic and Transient Stability</li>
+                    <li>Regulatory and Policy Assessment</li>
+                </ul>
+            </div>
 
-        <!-- Large Loads -->
+            <div class="card">
+                <h3>Power System Dynamics</h3>
+                <ul>
+                    <li>Synchronous Machines</li>
+                    <li>Grid Forming / Grid Following Inverters</li>
+                    <li>Transient and Small Signal Stability</li>
+                    <li>Controlled Islanding and Optimization</li>
+                </ul>
+            </div>
 
-        <div class="card">
+            <div class="card">
+                <h3>Network Reduction with User-defined Renewables</h3>
+                <ul>
+                    <li>Boundary Equivalents</li>
+                    <li>IBR Dynamic Modeling</li>
+                    <li>Equivalent Representation of Multiple Renewable Plants</li>
+                    <li>Dynamic Performance Validation</li>
+                </ul>
+            </div>
 
-            <h3>Large Loads and Datacenters</h3>
-
-            <ul>
-
-                <li>
-                    Grid Interconnection Studies
-                </li>
-
-                <li>
-                    Co-located Generation Evaluation
-                </li>
-
-                <li>
-                    Dynamic and Transient Stability
-                </li>
-
-                <li>
-                    Regulatory and Policy Assessment
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- Power System Dynamics -->
-
-        <div class="card">
-
-            <h3>Power System Dynamics</h3>
-
-            <ul>
-
-                <li>
-                    Synchronous Machines
-                </li>
-
-                <li>
-                    Grid Forming / Grid Following Inverters
-                </li>
-
-                <li>
-                    Transient and Small Signal Stability
-                </li>
-
-                <li>
-                    Controlled Islanding and Optimization
-                </li>
-
-            </ul>
+            <div class="card">
+                <h3>Grid Cybersecurity</h3>
+                <ul>
+                    <li>Threat Detection</li>
+                    <li>Threat Mitigation</li>
+                </ul>
+            </div>
 
         </div>
-
-
-        <!-- Network Reduction -->
-
-        <div class="card">
-
-            <h3>
-                Network Reduction with User-defined Renewables
-            </h3>
-
-            <ul>
-
-                <li>
-                    Boundary Equivalents
-                </li>
-
-                <li>
-                    IBR Dynamic Modeling
-                </li>
-
-                <li>
-                    Equivalent Representation of Multiple Renewable Plants
-                </li>
-
-                <li>
-                    Dynamic Performance Validation
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- Cybersecurity -->
-
-        <div class="card">
-
-            <h3>Grid Cybersecurity</h3>
-
-            <ul>
-
-                <li>
-                    Threat Detection
-                </li>
-
-                <li>
-                    Threat Mitigation
-                </li>
-
-            </ul>
-
-        </div>
-
 
     </div>
 
-</div>
-```
-
 </section>
 
-<!-- ==================== SIMULATION SOFTWARE ==================== -->
+    <section id="software">
 
-<section id="software">
+    <div class="container">
 
-```
-<div class="container">
+        <h2 class="section-title">Simulation Software</h2>
 
-    <h2 class="section-title">
-        Simulation Software
-    </h2>
+        <div class="software-grid">
 
-    <div class="software-grid">
+            <div class="software-card">
+                <h3>PSCAD</h3>
+                <p>
+                    Electromagnetic transient (EMT) simulation and analysis
+                    of power systems, power electronics, and renewable energy
+                    systems.
+                </p>
+            </div>
 
+            <div class="software-card">
+                <h3>PSS®E</h3>
+                <p>
+                    Transmission system power flow, short-circuit analysis,
+                    dynamic simulation, and stability studies.
+                </p>
+            </div>
 
-        <!-- PSCAD -->
+            <div class="software-card">
+                <h3>ASPEN</h3>
+                <p>
+                    Short-circuit analysis, relay coordination, protection
+                    studies, and transmission system analysis.
+                </p>
+            </div>
 
-        <div class="software-card">
+            <div class="software-card">
+                <h3>PowerFactory</h3>
+                <p>
+                    Power system modeling, load flow, fault analysis,
+                    stability studies, and renewable energy integration.
+                </p>
+            </div>
 
-            <h3>PSCAD</h3>
+            <div class="software-card">
+                <h3>DSATools</h3>
+                <p>
+                    Dynamic security assessment, transient stability analysis,
+                    voltage stability, and large-scale power system studies.
+                </p>
+            </div>
 
-            <p>
-                Electromagnetic transient (EMT) simulation and analysis
-                of power systems, power electronics, renewable energy
-                systems, and inverter-based resources.
-            </p>
-
-        </div>
-
-
-        <!-- PSS/E -->
-
-        <div class="software-card">
-
-            <h3>PSS®E</h3>
-
-            <p>
-                Transmission system power flow, short-circuit analysis,
-                dynamic simulation, and transient stability studies.
-            </p>
-
-        </div>
-
-
-        <!-- ASPEN -->
-
-        <div class="software-card">
-
-            <h3>ASPEN</h3>
-
-            <p>
-                Short-circuit analysis, relay coordination, protection
-                studies, and transmission system analysis.
-            </p>
-
-        </div>
-
-
-        <!-- PowerFactory -->
-
-        <div class="software-card">
-
-            <h3>PowerFactory</h3>
-
-            <p>
-                Power system modeling, load flow, fault analysis,
-                stability studies, and renewable energy integration.
-            </p>
+            <div class="software-card">
+                <h3>PowerWorld</h3>
+                <p>
+                    Power flow analysis, contingency analysis, visualization,
+                    and transmission system planning.
+                </p>
+            </div>
 
         </div>
-
-
-        <!-- DSATools -->
-
-        <div class="software-card">
-
-            <h3>DSATools</h3>
-
-            <p>
-                Dynamic security assessment, transient stability analysis,
-                voltage stability, and large-scale power system studies.
-            </p>
-
-        </div>
-
-
-        <!-- PowerWorld -->
-
-        <div class="software-card">
-
-            <h3>PowerWorld</h3>
-
-            <p>
-                Power flow analysis, contingency analysis, visualization,
-                and transmission system planning.
-            </p>
-
-        </div>
-
 
     </div>
 
-</div>
-```
-
 </section>
 
-<!-- ==================== RECENTLY COMPLETED PROJECTS ==================== -->
+    <section id="projects">
 
-<section id="projects">
+    <div class="container">
 
-```
-<div class="container">
+        <h2 class="section-title">Recently Completed Projects</h2>
 
-    <h2 class="section-title">
-        Recently Completed Projects
-    </h2>
+        <div class="projects-grid">
 
-    <div class="projects-grid">
+            <div class="project-card">
 
+                <h3>Project 1</h3>
 
-        <!-- Project 1 -->
+                <p>
+                    Description of Project 1 can be added here. This section
+                    can describe the client requirement, scope of the study,
+                    simulation methodology, software used, and key outcomes.
+                </p>
 
-        <div class="project-card">
+            </div>
 
-            <h3>Project 1</h3>
+            <div class="project-card">
 
-            <p>
-                Description of Project 1 can be added here. This section
-                can describe the client requirement, scope of the study,
-                simulation methodology, software used, and key outcomes.
-            </p>
+                <h3>Project 2</h3>
 
-        </div>
+                <p>
+                    Description of Project 2 can be added here. This section
+                    can describe the technical objectives, power system
+                    analysis performed, simulation tools used, and project
+                    results.
+                </p>
 
-
-        <!-- Project 2 -->
-
-        <div class="project-card">
-
-            <h3>Project 2</h3>
-
-            <p>
-                Description of Project 2 can be added here. This section
-                can describe the technical objectives, power system
-                analysis performed, simulation tools used, and project
-                results.
-            </p>
+            </div>
 
         </div>
-
 
     </div>
 
-</div>
-```
-
 </section>
-
-<!-- ==================== CAREERS ==================== -->
 
 <section id="careers">
 
-```
-<div class="container">
+    <div class="container">
 
-    <h2 class="section-title">
-        Careers
-    </h2>
+        <h2 class="section-title">Careers</h2>
 
-    <p style="margin-bottom:20px;">
-        PSGER has the following openings:
-    </p>
-
-
-    <table>
-
-        <tr>
-
-            <th>Position</th>
-
-            <th>Qualification</th>
-
-            <th>Mode</th>
-
-            <th>Date Posted</th>
-
-            <th>Advertisement</th>
-
-            <th>Status</th>
-
-        </tr>
-
-
-        <!-- Research Scholar Intern -->
-
-        <tr>
-
-            <td>
-                Research Scholar Intern
-            </td>
-
-            <td>
-                Post-graduate
-            </td>
-
-            <td>
-                Remote, Part-time
-            </td>
-
-            <td>
-                19/06/2026
-            </td>
-
-            <td>
-
-                <a
-                    href="PSGER Position - RSI0001.pdf"
-                    target="_blank"
-                    class="pdf-link"
-                >
-                    View PDF
-                </a>
-
-            </td>
-
-            <td>
-                Filled
-            </td>
-
-        </tr>
-
-
-        <!-- Accounts Administrator -->
-
-        <tr>
-
-            <td>
-                Accounts Administrator
-            </td>
-
-            <td>
-                Graduate
-            </td>
-
-            <td>
-                Remote, Part-time
-            </td>
-
-            <td>
-                01/06/2026
-            </td>
-
-            <td>
-
-                <a
-                    href="PSGER Position - MNG0001.pdf"
-                    target="_blank"
-                    class="pdf-link"
-                >
-                    View PDF
-                </a>
-
-            </td>
-
-            <td>
-                Filled
-            </td>
-
-        </tr>
-
-
-        <!-- Power Electronics Research Scholar -->
-
-        <tr>
-
-            <td>
-                Research Scholar Intern - Power Electronics
-            </td>
-
-            <td>
-                Undergraduate
-            </td>
-
-            <td>
-                Remote, Part-time
-            </td>
-
-            <td>
-                21/08/2026
-            </td>
-
-            <td>
-
-                <a
-                    href="PSGER Position - RSI0002.pdf"
-                    target="_blank"
-                    class="pdf-link"
-                >
-                    View PDF
-                </a>
-
-            </td>
-
-            <td>
-                Filled
-            </td>
-
-        </tr>
-
-
-    </table>
-
-</div>
-```
-
-</section>
-
-<!-- ==================== CONTACT ==================== -->
-
-<section id="contact">
-
-```
-<div class="container">
-
-    <h2 class="section-title">
-        Contact Us
-    </h2>
-
-
-    <div class="contact-box">
-
-        <p>
-            <strong>PSGER</strong>
+        <p style="margin-bottom:20px;">
+            PSGER has the following openings:
         </p>
 
-        <p>
-            8 Feeder Road, Ariadaha, West Bengal, 700057
-        </p>
+        <table>
 
-        <p>
-            Email: info@psger.com
-        </p>
+            <tr>
+                <th>Position</th>
+                <th>Qualification</th>
+                <th>Mode</th>
+                <th>Date Posted</th>
+                <th>Advertisement</th>
+                <th>Status</th>
+            </tr>
+            <!-- <tr>
+                <td>Research Scholar Intern</td>
+                <td>Post-graduate</td>
+                <td>Remote, Part-time</td>
+                <td>21/06/2026</td>
+                <td>
+                    <a href="PSGER Position - RSI0001.pdf"
+                       target="_blank"
+                       class="pdf-link">
+                       View PDF
+                    </a>
+                </td>
+                <td>Open</td>
+            </tr> -->
+            <tr>
+                <td>Research Scholar Intern</td>
+                <td>Post-graduate</td>
+                <td>Remote, Part-time</td>
+                <td>19/06/2026</td>
+                <td>
+                    <a href="PSGER Position - RSI0001.pdf"
+                       target="_blank"
+                       class="pdf-link">
+                       View PDF
+                    </a>
+                </td>
+                <td>Filled</td>
+            </tr>
+             <tr>
+                <td>Accounts Administrator</td>
+                <td>Graduate</td>
+                <td>Remote, Part-time</td>
+                <td>01/06/2026</td>
+                <td>
+                    <a href="PSGER Position - MNG0001.pdf"
+                       target="_blank"
+                       class="pdf-link">
+                       View PDF
+                    </a>
+                </td>
+                <td>Filled</td>
+            </tr>
+                <tr>
+                <td>Research Scholar Intern - Power Electronics</td>
+                <td>Undergraduate</td>
+                <td>Remote, Part-time</td>
+                <td>21/08/2026</td>
+                <td>
+                    <a href="PSGER Position - RSI0002.pdf"
+                       target="_blank"
+                       class="pdf-link">
+                       View PDF
+                    </a>
+                </td>
+                <td>Filled</td>
+            </tr>
+
+
+
+        </table>
 
     </div>
 
-</div>
-```
+</section>
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact-box">
+
+            <p><strong>PSGER</strong></p>
+            <p>8 Feeder Road, Ariadaha, West Bengal, 700057</p>
+
+            <p>Email: info@psger.com</p>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ==================== FOOTER ==================== -->
-
 <footer>
 
-```
-<p>
-    © 2026 PSGER - PS Grid Engineering and Research Private Limited
-</p>
+    <p>
+        © 2026 PSGER - PS Grid Engineering and Research Private Limited
+    </p>
 
-<br>
+    <br>
 
-<a href="#home">
-    Home
-</a>
-
-<a href="#services">
-    Services
-</a>
-
-<a href="#software">
-    Simulation Software
-</a>
-
-<a href="#projects">
-    Projects
-</a>
-
-<a href="#careers">
-    Careers
-</a>
-
-<a href="#contact">
-    Contact Us
-</a>
-```
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#careers">Careers</a>
+    <a href="#contact">Contact Us</a>
 
 </footer>
 
